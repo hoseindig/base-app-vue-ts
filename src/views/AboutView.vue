@@ -29,14 +29,13 @@
         }}</a>
 
         <div class="profile-actions">
-          <a
+          <BaseButton
+            tag="a"
             :href="`mailto:${$t(
               'about.email'
             )}?subject=Please%20send%20CV&body=Hi%20Hossein`"
-            class="btn"
-            rel="noopener"
-            target="_blank"
-            >{{ $t("about.downloadCV") }}</a
+            class="inline-block"
+            >{{ $t("about.downloadCV") }}</BaseButton
           >
         </div>
       </aside>
@@ -63,7 +62,7 @@
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import i18n from "@/i18n";
-
+import BaseButton from "@/components/BaseButton.vue";
 const { locale } = useI18n();
 
 const skills = computed(() => {
@@ -96,6 +95,8 @@ const skills = computed(() => {
   padding: 1.25rem;
   border-radius: 12px;
   text-align: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 .avatar {
   display: flex;

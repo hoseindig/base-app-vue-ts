@@ -4,7 +4,7 @@
       <h3>{{ $t("common.name") }}</h3>
       <BaseInput v-model="name" placeholder="Your name" @keyup.enter="save" />
       <div class="actions">
-        <button @click="save">OK</button>
+        <BaseButton @click="save">OK</BaseButton>
       </div>
     </div>
   </div>
@@ -13,6 +13,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import BaseInput from "./BaseInput.vue";
+import BaseButton from "./BaseButton.vue";
 
 const show = ref(false);
 const name = ref("");

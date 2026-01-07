@@ -4,7 +4,7 @@
 
     <div class="field">
       <BaseInput v-model="name" :label="$t('common.name')" />
-      <button @click="saveName">{{ $t("common.add") }}</button>
+      <BaseButton @click="saveName">{{ $t("common.add") }}</BaseButton>
     </div>
 
     <div class="field">
@@ -32,7 +32,7 @@ import { ref, onMounted, computed } from "vue";
 import { useI18n } from "vue-i18n";
 import BaseInput from "@/components/BaseInput.vue";
 import BaseSelect from "@/components/BaseSelect.vue";
-
+import BaseButton from "@/components/BaseButton.vue";
 const { locale, t } = useI18n();
 
 const name = ref("");

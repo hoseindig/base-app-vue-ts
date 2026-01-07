@@ -25,7 +25,7 @@ const messages = {
         },
         about: {
             title: 'Hossein Sheykhi — Developer',
-            email: 'hossein.sheykhi.developer@gmail.com',
+            email: 'hossein.sheykhi.developer[at]gmail.com',
             summary: 'Hi — I\'m Hossein Sheykhi, a web developer building accessible, responsive applications with Vue, React and Node.js. I focus on TypeScript, SASS, state managers, PWA, maps (Leaflet), charting (Chart.js, Recharts), and reliable backends (Express, MongoDB). I also work with CI/CD, Docker and modern bundlers (Vite, Webpack).',
             skillsHeading: 'Skills & Technologies',
             skills: [
@@ -59,7 +59,7 @@ const messages = {
         },
         about: {
             title: 'حسین شیخی — توسعه‌دهنده',
-            email: 'hossein.sheykhi.developer@gmail.com',
+            email: 'hossein.sheykhi.developer@@gmail.com',
             summary: 'سلام — من حسین شیخی هستم، توسعه‌دهنده وب که برنامه‌های واکنش‌گرا و قابل‌دسترسی با Vue، React و Node.js می‌سازم. تمرکزم روی TypeScript، SASS، مدیریت وضعیت، PWA، نقشه‌ها (Leaflet)، نمودارها (Chart.js, Recharts) و بک‌اند (Express, MongoDB) است. همچنین در CI/CD، Docker و باندلرهای مدرن (Vite, Webpack) تجربه دارم.',
             skillsHeading: 'مهارت‌ها و تکنولوژی‌ها',
             skills: [

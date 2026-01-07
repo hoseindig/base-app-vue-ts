@@ -4,7 +4,7 @@
 
     <form @submit.prevent="addTodo" class="todo-form">
       <BaseInput v-model="newText" placeholder="Add a task" />
-      <button type="submit">Add</button>
+      <BaseButton type="submit">Add</BaseButton>
     </form>
 
     <ul class="items">
@@ -13,7 +13,9 @@
           <input type="checkbox" v-model="item.done" @change="persist()" />
           <span>{{ item.text }}</span>
         </label>
-        <button class="remove" @click="remove(item.id)">✕</button>
+        <BaseButton class="remove" variant="danger" @click="remove(item.id)"
+          >✕</BaseButton
+        >
       </li>
     </ul>
 
@@ -26,7 +28,7 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import BaseInput from "./BaseInput.vue";
-
+import BaseButton from "./BaseButton.vue";
 interface Todo {
   id: number;
   text: string;
