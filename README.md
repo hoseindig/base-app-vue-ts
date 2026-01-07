@@ -55,4 +55,10 @@ npm run test:unit
 - **Welcome** — a greeting component (`src/components/Welcome.vue`) that shows "Good morning", "Good afternoon", or "Good evening" depending on your local time.
 - **To‑do List** — a simple todo component (`src/components/TodoList.vue`) with add/complete/remove and localStorage persistence. It is included on the Home page alongside the welcome content.
 
-To try it out: run `npm run dev`, open the app, and visit the Home page. Add items to the To‑do and refresh to see they persist.
+- **Weather page** — `src/views/WeatherView.vue` + `src/components/WeatherSearch.vue` provide an autocomplete city search (via open-meteo geocoding API) and show current weather (via open-meteo forecast API).
+
+- **Profile page** — `src/views/ProfileView.vue` allows changing your name, selecting app theme (Light/Dark/Auto), and switching language (English / فارسی). On first visit the app prompts for your name and saves it to Local Storage.
+
+- **i18n** — the app uses `vue-i18n` to support **English** and **فارسی**; language choice is saved in Local Storage.
+
+To try it out: run `npm install` (to ensure `vue-i18n` is installed), then `npm run dev`, open the app, and visit Home, Weather, or Profile pages. Add items to the To‑do and refresh to see they persist. Change language or theme in the Profile page to see changes saved.

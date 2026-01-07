@@ -3,6 +3,8 @@
     <div class="brand">BaseApp</div>
     <nav>
       <router-link to="/" class="nav-link">Home</router-link>
+      <router-link to="/weather" class="nav-link">Weather</router-link>
+      <router-link to="/profile" class="nav-link">Profile</router-link>
       <router-link to="/about" class="nav-link">About</router-link>
     </nav>
   </aside>

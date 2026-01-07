@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import Welcome from "@/components/Welcome.vue";
 import TodoList from "@/components/TodoList.vue";
-import TheWelcome from "@/components/TheWelcome.vue";
 </script>
 
 <template>
@@ -11,9 +10,7 @@ import TheWelcome from "@/components/TheWelcome.vue";
       <TodoList />
     </section>
 
-    <aside class="right">
-      <TheWelcome />
-    </aside>
+    <aside class="right"></aside>
   </div>
 </template>
 

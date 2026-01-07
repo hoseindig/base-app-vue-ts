@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterView } from "vue-router";
 import Sidebar from "./components/Sidebar.vue";
+import ProfilePrompt from "./components/ProfilePrompt.vue";
 </script>
 
 <template>
@@ -10,6 +11,8 @@ import Sidebar from "./components/Sidebar.vue";
     <main class="content">
       <RouterView />
     </main>
+
+    <ProfilePrompt />
   </div>
 </template>
 
