@@ -30,7 +30,8 @@ const messages = {
             skillsHeading: 'Skills & Technologies',
             skills: [
                 'Vue', 'SASS', 'State Managers', 'Node.js', 'Router', 'PWA', 'TypeScript', 'TailwindCSS', 'Leaflet (map)', 'Chart.js', 'SQL', 'Mongoose', 'Next.js', 'React', 'HTML5', 'CSS3', 'ES6', 'Responsive Design', 'Web Accessibility', 'Nuxt.js', 'React Query', 'zustand', 'Redux Toolkit', 'sass / scss', 'Styled Components', 'Material UI', 'Ant Design', 'Json Schema', 'React Hook Form', 'Express.js', 'REST API', 'Authentication & Authorization', 'MongoDB', 'Git / GitHub / GitLab', 'Docker', 'CI/CD', 'Webpack / Vite', 'ESLint / Prettier', 'recharts'
-            ]
+            ],
+            downloadCV: 'Download CV'
         },
 
     },
@@ -63,7 +64,8 @@ const messages = {
             skillsHeading: 'مهارت‌ها و تکنولوژی‌ها',
             skills: [
                 'Vue', 'SASS', 'State Managers', 'Node.js', 'Router', 'PWA', 'TypeScript', 'TailwindCSS', 'Leaflet (map)', 'Chart.js', 'SQL', 'Mongoose', 'Next.js', 'React', 'HTML5', 'CSS3', 'ES6', 'Responsive Design', 'Web Accessibility', 'Nuxt.js', 'React Query', 'zustand', 'Redux Toolkit', 'sass / scss', 'Styled Components', 'Material UI', 'Ant Design', 'Json Schema', 'React Hook Form', 'Express.js', 'REST API', 'Authentication & Authorization', 'MongoDB', 'Git / GitHub / GitLab', 'Docker', 'CI/CD', 'Webpack / Vite', 'ESLint / Prettier', 'recharts'
-            ]
+            ],
+            downloadCV: 'دانلود رزومه'
         },
     },
 }
