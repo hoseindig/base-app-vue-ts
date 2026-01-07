@@ -23,6 +23,16 @@ const messages = {
             dark: 'Dark',
             auto: 'Auto',
         },
+        about: {
+            title: 'Hossein Sheykhi — Developer',
+            email: 'hossein.sheykhi.developer@gmail.com',
+            summary: 'Hi — I\'m Hossein Sheykhi, a web developer building accessible, responsive applications with Vue, React and Node.js. I focus on TypeScript, SASS, state managers, PWA, maps (Leaflet), charting (Chart.js, Recharts), and reliable backends (Express, MongoDB). I also work with CI/CD, Docker and modern bundlers (Vite, Webpack).',
+            skillsHeading: 'Skills & Technologies',
+            skills: [
+                'Vue', 'SASS', 'State Managers', 'Node.js', 'Router', 'PWA', 'TypeScript', 'TailwindCSS', 'Leaflet (map)', 'Chart.js', 'SQL', 'Mongoose', 'Next.js', 'React', 'HTML5', 'CSS3', 'ES6', 'Responsive Design', 'Web Accessibility', 'Nuxt.js', 'React Query', 'zustand', 'Redux Toolkit', 'sass / scss', 'Styled Components', 'Material UI', 'Ant Design', 'Json Schema', 'React Hook Form', 'Express.js', 'REST API', 'Authentication & Authorization', 'MongoDB', 'Git / GitHub / GitLab', 'Docker', 'CI/CD', 'Webpack / Vite', 'ESLint / Prettier', 'recharts'
+            ]
+        },
+
     },
     fa: {
         common: {
@@ -45,6 +55,15 @@ const messages = {
             light: 'روشن',
             dark: 'تیره',
             auto: 'خودکار',
+        },
+        about: {
+            title: 'حسین شیخی — توسعه‌دهنده',
+            email: 'hossein.sheykhi.developer@gmail.com',
+            summary: 'سلام — من حسین شیخی هستم، توسعه‌دهنده وب که برنامه‌های واکنش‌گرا و قابل‌دسترسی با Vue، React و Node.js می‌سازم. تمرکزم روی TypeScript، SASS، مدیریت وضعیت، PWA، نقشه‌ها (Leaflet)، نمودارها (Chart.js, Recharts) و بک‌اند (Express, MongoDB) است. همچنین در CI/CD، Docker و باندلرهای مدرن (Vite, Webpack) تجربه دارم.',
+            skillsHeading: 'مهارت‌ها و تکنولوژی‌ها',
+            skills: [
+                'Vue', 'SASS', 'State Managers', 'Node.js', 'Router', 'PWA', 'TypeScript', 'TailwindCSS', 'Leaflet (map)', 'Chart.js', 'SQL', 'Mongoose', 'Next.js', 'React', 'HTML5', 'CSS3', 'ES6', 'Responsive Design', 'Web Accessibility', 'Nuxt.js', 'React Query', 'zustand', 'Redux Toolkit', 'sass / scss', 'Styled Components', 'Material UI', 'Ant Design', 'Json Schema', 'React Hook Form', 'Express.js', 'REST API', 'Authentication & Authorization', 'MongoDB', 'Git / GitHub / GitLab', 'Docker', 'CI/CD', 'Webpack / Vite', 'ESLint / Prettier', 'recharts'
+            ]
         },
     },
 }

@@ -3,7 +3,7 @@
     <h2>To‑do</h2>
 
     <form @submit.prevent="addTodo" class="todo-form">
-      <input v-model="newText" placeholder="Add a task" />
+      <BaseInput v-model="newText" placeholder="Add a task" />
       <button type="submit">Add</button>
     </form>
 
@@ -25,6 +25,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from "vue";
+import BaseInput from "./BaseInput.vue";
 
 interface Todo {
   id: number;

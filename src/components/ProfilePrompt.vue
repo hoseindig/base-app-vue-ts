@@ -2,7 +2,7 @@
   <div v-if="show" class="overlay">
     <div class="prompt">
       <h3>{{ $t("common.name") }}</h3>
-      <input v-model="name" @keyup.enter="save" placeholder="Your name" />
+      <BaseInput v-model="name" placeholder="Your name" @keyup.enter="save" />
       <div class="actions">
         <button @click="save">OK</button>
       </div>
@@ -12,6 +12,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+import BaseInput from "./BaseInput.vue";
 
 const show = ref(false);
 const name = ref("");

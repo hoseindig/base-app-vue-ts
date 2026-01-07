@@ -3,39 +3,52 @@
     <h1>{{ $t("common.profile") }}</h1>
 
     <div class="field">
-      <label>{{ $t("common.name") }}</label>
-      <input v-model="name" />
+      <BaseInput v-model="name" :label="$t('common.name')" />
       <button @click="saveName">{{ $t("common.add") }}</button>
     </div>
 
     <div class="field">
-      <label>{{ $t("common.theme") }}</label>
-      <select v-model="theme" @change="applyTheme">
-        <option value="auto">{{ $t("common.auto") }}</option>
-        <option value="light">{{ $t("common.light") }}</option>
-        <option value="dark">{{ $t("common.dark") }}</option>
-      </select>
+      <BaseSelect
+        v-model="theme"
+        :label="$t('common.theme')"
+        :options="themeOptions"
+        @change="applyTheme"
+      />
     </div>
 
     <div class="field">
-      <label>{{ $t("common.language") }}</label>
-      <select v-model="lang" @change="applyLang">
-        <option value="en">English</option>
-        <option value="fa">فارسی</option>
-      </select>
+      <BaseSelect
+        v-model="lang"
+        :label="$t('common.language')"
+        :options="langOptions"
+        @change="applyLang"
+      />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { useI18n } from "vue-i18n";
+import BaseInput from "@/components/BaseInput.vue";
+import BaseSelect from "@/components/BaseSelect.vue";
 
-const { locale } = useI18n();
+const { locale, t } = useI18n();
 
 const name = ref("");
 const theme = ref("auto");
 const lang = ref(locale.value);
+
+const themeOptions = computed(() => [
+  { value: "auto", label: t("common.auto") },
+  { value: "light", label: t("common.light") },
+  { value: "dark", label: t("common.dark") },
+]);
+
+const langOptions = computed(() => [
+  { value: "en", label: "English" },
+  { value: "fa", label: "فارسی" },
+]);
 
 onMounted(() => {
   try {

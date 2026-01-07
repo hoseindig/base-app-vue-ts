@@ -1,7 +1,7 @@
 <template>
   <div class="search">
     <label>{{ $t("common.searchCity") }}</label>
-    <input v-model="query" @input="onInput" placeholder="e.g. Tehran" />
+    <BaseInput v-model="query" @input="onInput" placeholder="e.g. Tehran" />
 
     <ul v-if="results.length" class="suggestions">
       <li v-for="r in results" :key="r.id" @click="select(r)">
@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-
+import BaseInput from "./BaseInput.vue";
 function debounce(fn: (...args: any[]) => void, delay = 300) {
   let t: ReturnType<typeof setTimeout>;
   return (...args: any[]) => {
