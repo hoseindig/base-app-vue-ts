@@ -9,10 +9,10 @@ const drawer = ref(false);
 </script>
 
 <template>
-  <div class="app-layout">
-    <main class="content">
+  <v-app class="app-layout mx-3">
+    <v-main class="content">
       <RouterView />
-    </main>
+    </v-main>
 
     <ProfilePrompt />
 
@@ -30,7 +30,7 @@ const drawer = ref(false);
       aria-expanded="drawer"
       >☰</BaseButton
     >
-  </div>
+  </v-app>
 </template>
 
 <style scoped>

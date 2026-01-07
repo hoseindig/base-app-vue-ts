@@ -1,7 +1,11 @@
 import './assets/main.css'
 import './assets/tailwind.css'
+import 'vuetify/styles'
+
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import { createVuetify } from 'vuetify'
+import { VApp, VMain, VNavigationDrawer, VList, VListItem } from 'vuetify/components'
 
 import App from './App.vue'
 import router from './router'
@@ -26,5 +30,11 @@ try {
 app.use(createPinia())
 app.use(router)
 app.use(i18n)
+
+// Vuetify: explicitly register used components so layout provider is available
+const vuetify = createVuetify({
+    components: { VApp, VMain, VNavigationDrawer, VList, VListItem },
+})
+app.use(vuetify)
 
 app.mount('#app')
