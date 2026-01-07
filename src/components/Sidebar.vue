@@ -1,6 +1,6 @@
 <template>
   <VNavigationDrawer
-    rail
+    :rail="rail"
     expand-on-hover
     class="min-h-screen bg-white border-r p-4"
     :width="expandedNumeric"
@@ -10,11 +10,12 @@
     <div class="brand flex items-center gap-2 mb-4">
       <!-- badge -->
       <div
-        class="w-9 h-9 rounded-md bg-indigo-600 text-white grid place-items-center font-bold"
+        class="brand-badge w-9 h-9 rounded-md bg-indigo-600 text-white grid place-items-center font-bold"
       >
         B
       </div>
-      <div class="font-bold">BaseApp</div>
+      <!-- title -->
+      <!-- <div class="brand-title font-bold">BaseApp</div> -->
     </div>
 
     <nav class="flex flex-col gap-2">
@@ -57,6 +58,10 @@
 import { computed } from "vue";
 import { RouterLink } from "vue-router";
 import { VNavigationDrawer } from "vuetify/components";
+import { ref } from "vue";
+
+const drawer = ref(true);
+const rail = ref(true);
 
 const props = defineProps({
   railWidth: { type: [Number, String], default: 72 },
@@ -79,7 +84,17 @@ const expandedNumeric = computed(() =>
 /* Layout is now handled with Tailwind and Vuetify components; keep minimal scoped styles if necessary */
 
 /* Hide the header (brand) when the drawer is in rail (collapsed) and not hovered */
-::v-deep(.v-navigation-drawer--rail:not(:hover) .brand) {
-  display: none;
+::v-deep(.brand-badge),
+::v-deep(.brand-title) {
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+::v-deep(.v-navigation-drawer--rail:not(:hover) .brand-badge),
+::v-deep(.v-navigation-drawer--rail:not(:hover) .brand-title) {
+  opacity: 0;
+  transform: translateX(-6px);
+  pointer-events: none;
+  width: 0;
+  overflow: hidden;
 }
 </style>

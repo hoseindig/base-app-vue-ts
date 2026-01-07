@@ -2,7 +2,6 @@
 import { RouterView } from "vue-router";
 import Sidebar from "./components/Sidebar.vue";
 import ProfilePrompt from "./components/ProfilePrompt.vue";
-import BaseButton from "./components/BaseButton.vue";
 import { ref } from "vue";
 
 const drawer = ref(false);
@@ -23,13 +22,6 @@ const drawer = ref(false);
     <aside :class="['mobile-drawer', { open: drawer }]">
       <Sidebar />
     </aside>
-
-    <BaseButton
-      class="drawer-toggle"
-      @click="drawer = !drawer"
-      aria-expanded="drawer"
-      >☰</BaseButton
-    >
   </v-app>
 </template>
 

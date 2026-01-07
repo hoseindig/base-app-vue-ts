@@ -10,12 +10,17 @@
     <ul class="items">
       <li v-for="item in todos" :key="item.id" :class="{ done: item.done }">
         <label>
-          <input type="checkbox" v-model="item.done" @change="persist()" />
+          <input
+            type="checkbox"
+            class="mx-2"
+            v-model="item.done"
+            @change="persist()"
+          />
           <span>{{ item.text }}</span>
         </label>
-        <BaseButton class="remove" variant="danger" @click="remove(item.id)"
-          >✕</BaseButton
-        >
+        <button class="remove" variant="danger" @click="remove(item.id)">
+          ✕
+        </button>
       </li>
     </ul>
 
