@@ -1,41 +1,108 @@
 <template>
-  <aside class="sidebar">
-    <div class="brand">BaseApp</div>
-    <nav>
-      <router-link to="/" class="nav-link">Home</router-link>
-      <router-link to="/about" class="nav-link">About</router-link>
+  <VNavigationDrawer
+    :rail="rail"
+    expand-on-hover
+    class="min-h-screen bg-white border-r p-4"
+    :width="expandedNumeric"
+    :rail-width="railNumeric"
+    app
+  >
+    <div class="brand flex items-center gap-2 mb-4">
+      <!-- badge -->
+      <div
+        class="brand-badge w-9 h-9 rounded-md bg-indigo-600 text-white grid place-items-center font-bold"
+      >
+        B
+      </div>
+      <!-- title -->
+      <!-- <div class="brand-title font-bold">BaseApp</div> -->
+    </div>
+
+    <nav class="flex flex-col gap-2">
+      <RouterLink
+        to="/"
+        class="flex items-center gap-3 p-2 rounded-md hover:bg-gray-50"
+      >
+        <span class="inline-flex items-center w-9 justify-center">🏠</span>
+        <span>Home</span>
+      </RouterLink>
+
+      <RouterLink
+        to="/weather"
+        class="flex items-center gap-3 p-2 rounded-md hover:bg-gray-50"
+      >
+        <span class="inline-flex items-center w-9 justify-center">☀️</span>
+        <span>Weather</span>
+      </RouterLink>
+
+      <RouterLink
+        to="/todos"
+        class="flex items-center gap-3 p-2 rounded-md hover:bg-gray-50"
+      >
+        <span class="inline-flex items-center w-9 justify-center">📝</span>
+        <span>Todos</span>
+      </RouterLink>
+
+      <RouterLink
+        to="/profile"
+        class="flex items-center gap-3 p-2 rounded-md hover:bg-gray-50"
+      >
+        <span class="inline-flex items-center w-9 justify-center">👤</span>
+        <span>Profile</span>
+      </RouterLink>
+
+      <RouterLink
+        to="/about"
+        class="flex items-center gap-3 p-2 rounded-md hover:bg-gray-50"
+      >
+        <span class="inline-flex items-center w-9 justify-center">ℹ️</span>
+        <span>About</span>
+      </RouterLink>
     </nav>
-  </aside>
+  </VNavigationDrawer>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { computed } from "vue";
+import { RouterLink } from "vue-router";
+import { VNavigationDrawer } from "vuetify/components";
+import { ref } from "vue";
+
+const drawer = ref(true);
+const rail = ref(true);
+
+const props = defineProps({
+  railWidth: { type: [Number, String], default: 72 },
+  expandedWidth: { type: [Number, String], default: 220 },
+});
+
+const railNumeric = computed(() =>
+  typeof props.railWidth === "number"
+    ? props.railWidth
+    : Number(String(props.railWidth).replace(/px$/, ""))
+);
+const expandedNumeric = computed(() =>
+  typeof props.expandedWidth === "number"
+    ? props.expandedWidth
+    : Number(String(props.expandedWidth).replace(/px$/, ""))
+);
+</script>
 
 <style scoped>
-.sidebar {
-  width: 220px;
-  min-width: 160px;
-  padding: 1.25rem;
-  border-right: 1px solid var(--color-border);
-  height: 100vh;
-  box-sizing: border-box;
-}
-.brand {
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-.nav-link {
-  display: block;
-  padding: 0.5rem 0.25rem;
-  color: var(--color-text);
-  text-decoration: none;
-}
-.nav-link.router-link-active {
-  font-weight: 700;
+/* Layout is now handled with Tailwind and Vuetify components; keep minimal scoped styles if necessary */
+
+/* Hide the header (brand) when the drawer is in rail (collapsed) and not hovered */
+::v-deep(.brand-badge),
+::v-deep(.brand-title) {
+  transition: opacity 160ms ease, transform 160ms ease;
 }
 
-@media (max-width: 768px) {
-  .sidebar {
-    display: none;
-  }
+::v-deep(.v-navigation-drawer--rail:not(:hover) .brand-badge),
+::v-deep(.v-navigation-drawer--rail:not(:hover) .brand-title) {
+  opacity: 0;
+  transform: translateX(-6px);
+  pointer-events: none;
+  width: 0;
+  overflow: hidden;
 }
 </style>

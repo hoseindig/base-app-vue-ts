@@ -1,19 +1,15 @@
 <script setup lang="ts">
 import Welcome from "@/components/Welcome.vue";
 import TodoList from "@/components/TodoList.vue";
-import TheWelcome from "@/components/TheWelcome.vue";
 </script>
 
 <template>
   <div class="home-grid">
     <section class="left">
-      <Welcome />
-      <TodoList />
+      <div class="welcome-center">
+        <Welcome />
+      </div>
     </section>
-
-    <aside class="right">
-      <TheWelcome />
-    </aside>
   </div>
 </template>
 
@@ -30,5 +26,15 @@ import TheWelcome from "@/components/TheWelcome.vue";
   .right {
     order: 2;
   }
+}
+
+.welcome-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+.welcome {
+  text-align: center;
 }
 </style>
