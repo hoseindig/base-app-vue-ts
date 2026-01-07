@@ -1,28 +1,30 @@
 <template>
-  <section class="profile">
-    <h1>{{ $t("common.profile") }}</h1>
+  <section class="page-center">
+    <div class="container profile">
+      <h1>{{ $t("common.profile") }}</h1>
 
-    <div class="field">
-      <BaseInput v-model="name" :label="$t('common.name')" />
-      <BaseButton @click="saveName">{{ $t("common.add") }}</BaseButton>
-    </div>
+      <div class="field">
+        <BaseInput v-model="name" :label="$t('common.name')" />
+        <BaseButton @click="saveName">{{ $t("common.add") }}</BaseButton>
+      </div>
 
-    <div class="field">
-      <BaseSelect
-        v-model="theme"
-        :label="$t('common.theme')"
-        :options="themeOptions"
-        @change="applyTheme"
-      />
-    </div>
+      <div class="field">
+        <BaseSelect
+          v-model="theme"
+          :label="$t('common.theme')"
+          :options="themeOptions"
+          @change="applyTheme"
+        />
+      </div>
 
-    <div class="field">
-      <BaseSelect
-        v-model="lang"
-        :label="$t('common.language')"
-        :options="langOptions"
-        @change="applyLang"
-      />
+      <div class="field">
+        <BaseSelect
+          v-model="lang"
+          :label="$t('common.language')"
+          :options="langOptions"
+          @change="applyLang"
+        />
+      </div>
     </div>
   </section>
 </template>
@@ -116,5 +118,17 @@ const applyLang = () => {
   padding: 0.5rem;
   width: 100%;
   max-width: 320px;
+}
+
+/* center wrapper */
+.page-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+.container {
+  width: 100%;
+  max-width: 720px;
 }
 </style>

@@ -36,6 +36,14 @@
       </RouterLink>
 
       <RouterLink
+        to="/todos"
+        class="flex items-center gap-3 p-2 rounded-md hover:bg-gray-50"
+      >
+        <span class="inline-flex items-center w-9 justify-center">📝</span>
+        <span>Todos</span>
+      </RouterLink>
+
+      <RouterLink
         to="/profile"
         class="flex items-center gap-3 p-2 rounded-md hover:bg-gray-50"
       >

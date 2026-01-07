@@ -22,4 +22,21 @@ describe('TodoList.vue', () => {
         await wrapper.find('.remove').trigger('click')
         expect(wrapper.findAll('li').length).toBe(0)
     })
+
+    it('edits a todo inline', async () => {
+        const wrapper = mount(TodoList)
+        const input = wrapper.find('input')
+        await input.setValue('Original')
+        await wrapper.find('form').trigger('submit.prevent')
+        expect(wrapper.findAll('li').length).toBe(1)
+
+        // start edit
+        await wrapper.find('.edit').trigger('click')
+        const editInput = wrapper.find('.edit-input input')
+        await editInput.setValue('Updated')
+        // simulate blur to save
+        await editInput.trigger('blur')
+
+        expect(wrapper.find('li span').text()).toBe('Updated')
+    })
 })

@@ -20,6 +20,11 @@ const router = createRouter({
       component: () => import('../views/WeatherView.vue'),
     },
     {
+      path: '/todos',
+      name: 'todos',
+      component: () => import('../views/TodosView.vue'),
+    },
+    {
       path: '/profile',
       name: 'profile',
       component: () => import('../views/ProfileView.vue'),

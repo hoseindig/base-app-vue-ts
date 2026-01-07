@@ -1,18 +1,20 @@
 <template>
-  <section class="weather-page">
-    <h1>{{ $t("common.weather") }}</h1>
+  <section class="page-center">
+    <div class="container weather-page">
+      <h1>{{ $t("common.weather") }}</h1>
 
-    <WeatherSearch @select="onSelect" />
+      <WeatherSearch @select="onSelect" />
 
-    <div v-if="loading">Loading…</div>
-    <div v-if="error" class="error">{{ error }}</div>
+      <div v-if="loading">Loading…</div>
+      <div v-if="error" class="error">{{ error }}</div>
 
-    <div v-if="weather" class="card">
-      <h2>{{ place?.name }}</h2>
-      <div class="meta">{{ $t("common.currentWeather") }}</div>
-      <p>Temperature: {{ weather.temperature }}°C</p>
-      <p>Wind speed: {{ weather.windspeed }} m/s</p>
-      <p>Weather code: {{ weather.weathercode }}</p>
+      <div v-if="weather" class="card">
+        <h2>{{ place?.name }}</h2>
+        <div class="meta">{{ $t("common.currentWeather") }}</div>
+        <p>Temperature: {{ weather.temperature }}°C</p>
+        <p>Wind speed: {{ weather.windspeed }} m/s</p>
+        <p>Weather code: {{ weather.weathercode }}</p>
+      </div>
     </div>
   </section>
 </template>
@@ -57,5 +59,17 @@ const onSelect = async (p: any) => {
 }
 .error {
   color: red;
+}
+
+/* center wrapper */
+.page-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+.container {
+  width: 100%;
+  max-width: 720px;
 }
 </style>

@@ -6,11 +6,10 @@ import TodoList from "@/components/TodoList.vue";
 <template>
   <div class="home-grid">
     <section class="left">
-      <Welcome />
-      <TodoList />
+      <div class="welcome-center">
+        <Welcome />
+      </div>
     </section>
-
-    <aside class="right"></aside>
   </div>
 </template>
 
@@ -27,5 +26,15 @@ import TodoList from "@/components/TodoList.vue";
   .right {
     order: 2;
   }
+}
+
+.welcome-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+.welcome {
+  text-align: center;
 }
 </style>

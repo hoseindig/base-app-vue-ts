@@ -16,11 +16,23 @@
             v-model="item.done"
             @change="persist()"
           />
-          <span>{{ item.text }}</span>
+          <span v-if="editingId !== item.id" @dblclick="startEdit(item)">{{
+            item.text
+          }}</span>
+          <BaseInput
+            v-else
+            v-model="editText"
+            @keydown.enter="saveEdit(item)"
+            @blur="saveEdit(item)"
+            class="edit-input"
+          />
         </label>
-        <button class="remove" variant="danger" @click="remove(item.id)">
-          ✕
-        </button>
+        <div class="actions">
+          <button class="edit" @click.prevent="startEdit(item)">✎</button>
+          <button class="remove" variant="danger" @click="remove(item.id)">
+            ✕
+          </button>
+        </div>
       </li>
     </ul>
 
@@ -60,11 +72,35 @@ const persist = () => {
 
 watch(todos, persist, { deep: true });
 
+const editingId = ref<number | null>(null);
+const editText = ref("");
+
 const addTodo = () => {
   const text = newText.value && newText.value.trim();
   if (!text) return;
   todos.value.unshift({ id: Date.now(), text, done: false });
   newText.value = "";
+};
+
+const startEdit = (item: Todo) => {
+  editingId.value = item.id;
+  editText.value = item.text;
+  // focus: we'll rely on user interaction; tests can simulate events
+};
+
+const saveEdit = (item: Todo) => {
+  if (editingId.value !== item.id) return;
+  const t = editText.value && editText.value.trim();
+  if (!t) {
+    // if emptied, remove the item
+    remove(item.id);
+  } else {
+    const idx = todos.value.findIndex((x) => x.id === item.id);
+    if (idx !== -1) todos.value[idx].text = t;
+  }
+  editingId.value = null;
+  editText.value = "";
+  persist();
 };
 
 const remove = (id: number) => {
@@ -112,10 +148,19 @@ const remove = (id: number) => {
   text-decoration: line-through;
   opacity: 0.7;
 }
-.remove {
+.remove,
+.edit {
   background: transparent;
   border: none;
   cursor: pointer;
+}
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.edit-input {
+  max-width: 240px;
 }
 .empty {
   color: var(--color-muted);
