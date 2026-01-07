@@ -20,9 +20,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import WeatherSearch from "@/components/WeatherSearch.vue";
 
+const STORAGE_KEY = "baseapp.weatherPlace";
 const place = ref<any>(null);
 const weather = ref<any>(null);
 const loading = ref(false);
@@ -30,6 +31,13 @@ const error = ref("");
 
 const onSelect = async (p: any) => {
   place.value = p;
+  // persist selection
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
+  } catch (e) {
+    // ignore storage errors
+  }
+
   weather.value = null;
   error.value = "";
   loading.value = true;
@@ -45,6 +53,21 @@ const onSelect = async (p: any) => {
     loading.value = false;
   }
 };
+
+onMounted(() => {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const saved = JSON.parse(raw);
+      if (saved && saved.latitude && saved.longitude) {
+        // re-fetch weather for saved place
+        onSelect(saved);
+      }
+    }
+  } catch (e) {
+    // ignore JSON/IO errors
+  }
+});
 </script>
 
 <style scoped>
