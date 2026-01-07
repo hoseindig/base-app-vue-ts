@@ -46,3 +46,13 @@ npm run build
 ```sh
 npm run test:unit
 ```
+
+---
+
+## Added UI
+
+- **Sidebar** — a left navigation sidebar (`src/components/Sidebar.vue`) with links to Home and About. It hides on small screens.
+- **Welcome** — a greeting component (`src/components/Welcome.vue`) that shows "Good morning", "Good afternoon", or "Good evening" depending on your local time.
+- **To‑do List** — a simple todo component (`src/components/TodoList.vue`) with add/complete/remove and localStorage persistence. It is included on the Home page alongside the welcome content.
+
+To try it out: run `npm run dev`, open the app, and visit the Home page. Add items to the To‑do and refresh to see they persist.
